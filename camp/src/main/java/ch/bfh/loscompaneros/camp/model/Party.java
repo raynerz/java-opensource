@@ -1,4 +1,4 @@
-package ch.bfh.swos.heroes.model;
+package ch.bfh.loscompaneros.camp.model;
 
 import java.util.List;
 

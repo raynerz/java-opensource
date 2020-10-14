@@ -1,6 +1,6 @@
-package ch.bfh.swos.heroes.service;
+package ch.bfh.loscompaneros.camp.service;
 
-import ch.bfh.swos.heroes.model.Party;
+import ch.bfh.loscompaneros.camp.model.Party;
 
 public interface PartyService {
 
