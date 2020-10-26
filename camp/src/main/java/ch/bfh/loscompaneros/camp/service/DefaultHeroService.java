@@ -1,18 +1,25 @@
 package ch.bfh.loscompaneros.camp.service;
 
 import ch.bfh.loscompaneros.camp.model.Hero;
+import ch.bfh.loscompaneros.camp.repository.HeroRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Random;
 
 @Service
 public class DefaultHeroService implements HeroService {
 
-    public Hero createHero(String name) {
+    @Autowired
+    private HeroRepository HeroRepository;
+
+    public Hero createHero(String name)
+    {
         Hero hero = new Hero();
         hero.setName(name);
 
-        System.out.println("The Hero " + name + " has been instantiated.");
+        System.out.println("The Hero " + hero.getName() + " has been instantiated.");
 
         int atk = new Random().nextInt(100);
         hero.setAtk(atk);
@@ -27,6 +34,11 @@ public class DefaultHeroService implements HeroService {
         System.out.println(name + " has HP value of " + hero.getHp());
 
         System.out.println("Hero " + name + " has been created");
-        return hero;
+
+        String id = HeroRepository.save(hero).getID();
+
+        Optional<Hero> tmpHero = HeroRepository.findById(id);
+
+        return tmpHero.orElse(null);
     }
 }
