@@ -9,15 +9,15 @@ public class Main
     public static void main(String[] args)
     {
 
-        // Application context using annotations for DI - more magic, less control
+        /*/ Application context using annotations for DI - more magic, less control
         AnnotationConfigApplicationContext annotatedContext = new AnnotationConfigApplicationContext();
-        annotatedContext.scan("ch.bfh.loscompaneros.camp.service");
+        annotatedContext.scan("ch.bfh.loscompaneros.camp");
         annotatedContext.refresh();
 
         PartyService partyServiceAnnotated = annotatedContext.getBean(PartyService.class);
         partyServiceAnnotated.createParty("Party_1");
 
-        annotatedContext.close();
+        annotatedContext.close();*/
 
         // Application context using java configuration for DI - less magic, more control, @Service annotations are obsolete.
         AnnotationConfigApplicationContext configuredContext = new AnnotationConfigApplicationContext(ServiceConfiguration.class);

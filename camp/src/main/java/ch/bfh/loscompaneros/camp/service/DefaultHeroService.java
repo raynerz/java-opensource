@@ -5,6 +5,7 @@ import ch.bfh.loscompaneros.camp.repository.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -13,7 +14,8 @@ public class DefaultHeroService implements HeroService {
     @Autowired
     private HeroRepository heroRepository;
 
-    public Hero createHero(String name) {
+    public Hero createHero(String name)
+    {
         Hero hero = new Hero();
         hero.setName(name);
 
@@ -28,12 +30,17 @@ public class DefaultHeroService implements HeroService {
         hero.setDef(def);
         System.out.println(name + " has DEF value of " + hero.getDef());
 
-        hero.setHp(100);
+        hero.setHp(new Random().nextInt(50));
         System.out.println(name + " has HP value of " + hero.getHp());
 
         String id = heroRepository.save(hero).getId();
 
         System.out.println("Hero " + name + " has been created");
-        return heroRepository.findById(id).get();
+        System.out.println("Heros with ATK greater than 50: " + heroRepository.countByAtkGreaterThan(50));
+        System.out.println("Heros with HP greater than 20: " + heroRepository.countByHpGreaterThan(20));
+
+        Optional<Hero> tmpHero = heroRepository.findById(id);
+
+        return tmpHero.orElse(null);
     }
 }

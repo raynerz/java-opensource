@@ -10,15 +10,48 @@ import cz.jirutka.spring.embedmongo.EmbeddedMongoBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
-import org.springframework.data.mongodb.core.MongoClientFactoryBean;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import java.io.File;
 import java.io.IOException;
-import java.net.UnknownHostException;
+import java.nio.file.Files;
 
 @Configuration
+@EnableMongoRepositories(basePackages= "ch.bfh.loscompaneros.camp.repository")
 public class ServiceConfiguration
 {
+    public ServiceConfiguration()
+    {
+        //Remove temporary mongodb files incase of crash
+        if (System.getenv("OS") != null && System.getenv("OS").contains("Windows"))
+        {
+            File f = new File(System.getenv("temp") + File.separator);
+
+            File[] files = f.listFiles();
+
+            if(files != null)
+            {
+                for (File file : files)
+                {
+                    if (file.isDirectory())
+                        continue;
+
+                    if (!file.getAbsolutePath().endsWith("mongod.exe"))
+                        continue;
+
+                    try
+                    {
+                        Files.deleteIfExists(file.toPath());
+                    }
+                    catch (IOException e)
+                    {
+                        System.err.println(e);
+                    }
+                }
+            }
+        }
+    }
     @Bean
     public HeroService heroService()
     {
