@@ -52,4 +52,6 @@ public class Hero {
     public void setHp(double hp) {
         this.hp = hp;
     }
+
+
 }
