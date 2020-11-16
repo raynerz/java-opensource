@@ -15,6 +15,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
+@RequestMapping("/party")
 public class PartyController {
 
     @Autowired
@@ -23,8 +24,9 @@ public class PartyController {
     @Autowired
     private RepositoryEntityLinks entityLinks;
 
-    @GetMapping(value = "/createParty")
-    public Party createParty(@RequestParam String name) {
+    // curl -d "party" -X POST localhost:8080/party
+    @PostMapping
+    public @ResponseBody Party createParty(@RequestBody String name) {
         Party party = partyService.createParty(name);
         party.add(linkTo(methodOn(PartyController.class).createParty(name)).withSelfRel());
         for (int i = 0; i < party.getMembers().size(); i++) {
