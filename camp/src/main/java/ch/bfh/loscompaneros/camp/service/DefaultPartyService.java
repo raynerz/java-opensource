@@ -2,29 +2,32 @@ package ch.bfh.loscompaneros.camp.service;
 
 import ch.bfh.loscompaneros.camp.model.Hero;
 import ch.bfh.loscompaneros.camp.model.Party;
+import ch.bfh.loscompaneros.camp.repository.HeroRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
 public class DefaultPartyService implements PartyService
 {
-    private static final int NBR_HEROES = 4;
 
     @Autowired
-    private HeroService heroService;
+    private HeroRepository heroRepository;
 
     @Override
     public Party createParty(String name)
     {
+
         Party party = new Party();
         party.setName(name);
 
-        List<Hero> members = new ArrayList<Hero>();
-        for (int i = 0; i < NBR_HEROES; i++)
-            members.add(heroService.createHero("Hero #"+(1+i)));
+        List<Hero> members = heroRepository.findAll();
+        Collections.shuffle(members);
+
+        List<Hero> defHeroes = members.subList(0, 4);
+
 
         party.setMembers(members);
 
