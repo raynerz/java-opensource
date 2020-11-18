@@ -1,9 +1,10 @@
 package ch.bfh.loscompaneros.camp.model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
 public class Hero {
@@ -51,4 +52,6 @@ public class Hero {
     public void setHp(double hp) {
         this.hp = hp;
     }
+
+
 }

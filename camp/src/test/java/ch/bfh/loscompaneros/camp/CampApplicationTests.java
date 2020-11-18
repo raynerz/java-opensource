@@ -3,11 +3,12 @@ package ch.bfh.loscompaneros.camp;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 @SpringBootTest
-class CampApplicationTests {
+public class CampApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 	}
 
 }
