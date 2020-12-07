@@ -11,6 +11,10 @@
     <modules>
         <module>camp</module>
         <module>microservices</module>
+        <module>registry</module>
+        <module>promoter</module>
+        <module>frontend</module>
+        <module>arena</module>
     </modules>
 
     <properties>
