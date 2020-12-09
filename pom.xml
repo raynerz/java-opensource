@@ -17,9 +17,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>registry</module>
         <module>camp</module>
         <module>microservices</module>
-        <module>registry</module>
     </modules>
 
     <properties>
