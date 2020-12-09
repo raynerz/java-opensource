@@ -19,7 +19,8 @@
     <modules>
         <module>registry</module>
         <module>camp</module>
-        <module>microservices</module>
+        <module>arena</module>
+        <module>promoter</module>
     </modules>
 
     <properties>
