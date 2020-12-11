@@ -5,11 +5,10 @@ import ch.bfh.loscompaneros.camp.model.Party;
 import ch.bfh.loscompaneros.camp.repository.HeroRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 
-@Service
+
 public class DefaultPartyService implements PartyService
 {
 

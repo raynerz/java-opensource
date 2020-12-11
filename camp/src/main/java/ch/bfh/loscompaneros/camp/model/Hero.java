@@ -1,17 +1,12 @@
 package ch.bfh.loscompaneros.camp.model;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-
-@Entity
+@Document
 public class Hero {
 
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String ID;
     private String name;
     private int atk;

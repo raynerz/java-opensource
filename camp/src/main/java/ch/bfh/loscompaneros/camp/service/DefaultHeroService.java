@@ -3,12 +3,11 @@ package ch.bfh.loscompaneros.camp.service;
 import ch.bfh.loscompaneros.camp.model.Hero;
 import ch.bfh.loscompaneros.camp.repository.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Random;
 
-@Service
+
 public class DefaultHeroService implements HeroService {
 
     @Autowired
