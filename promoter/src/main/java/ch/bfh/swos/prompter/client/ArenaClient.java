@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient("arena-service")
+@FeignClient(value = "arena-service", fallback = ArenaFallbackClient.class)
 public interface ArenaClient {
 
     @PostMapping("/battle")
