@@ -12,3 +12,10 @@
 | Camp | 2222 | Creates Heroes and Parties |
 | Arena | 3333 | Creates a battleground for parties |
 | Promoter | 4444 | Creates two parties and sends them to the arena |
+|Frontend | 8080 | Implements an API Gateway to reach the rest of the services | 
+## Additional Ressources
+
+| Resource          | URL                   |
+|----------------- |-----------------------| 
+|Hystrix Stream    | http://localhost:4444/actuator/hystrix.stream |
+|Hystrix Dashboard | http://locahhost:4444/hystrix |
