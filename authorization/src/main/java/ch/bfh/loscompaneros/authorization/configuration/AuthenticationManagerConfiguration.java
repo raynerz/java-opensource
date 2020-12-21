@@ -26,7 +26,9 @@ public class AuthenticationManagerConfiguration {
         final InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
 
         userDetailsManager.createUser(new User("admin", passwordEncoder().encode("secret"),
-                asList( new SimpleGrantedAuthority("FRONTEND_ACCESS"))));
+                asList( new SimpleGrantedAuthority("PROMOTER_ACCESS"),
+                        new SimpleGrantedAuthority("GET_USER"),
+                        new SimpleGrantedAuthority("POST_USER"))));
 
         return userDetailsManager;
     }

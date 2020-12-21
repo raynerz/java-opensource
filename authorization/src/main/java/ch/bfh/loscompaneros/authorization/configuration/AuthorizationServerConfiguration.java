@@ -57,7 +57,15 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .withClient("frontend-service")
                 .secret(passwordEncoder.encode("secret"))
                 .authorizedGrantTypes("password")
-                .scopes("default");
+                .scopes("default")
+            .and()
+                .withClient("promoter-service")
+                .secret(passwordEncoder.encode("secret"))
+                .authorities("CHECK_AUTH_TOKEN")
+
+
+
+        ;
         // @formatter:on
     }
 

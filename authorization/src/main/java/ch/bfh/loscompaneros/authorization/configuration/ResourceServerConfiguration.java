@@ -30,8 +30,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         // @formatter:off
         http
             .authorizeRequests()
-                .antMatchers(GET,"/user").hasAuthority("FRONTEND_ACCESS")
-                .antMatchers(POST,"/user").hasAuthority("FRONTEND_ACCESS")
+                .antMatchers(GET,"/user").hasAuthority("GET_USER")
+                .antMatchers(POST,"/user").hasAuthority("POST_USER")
                 .anyRequest().denyAll();
         // @formatter:on
     }
