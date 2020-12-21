@@ -55,7 +55,7 @@ public class OAuth2PasswordAuthenticationProvider implements AuthenticationProvi
                 .header(HttpHeaders.AUTHORIZATION, "Basic " + clientCredentialsEncoded)
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(formFields);
-
+        System.out.println(request.toString());
         final ResponseEntity<OAuth2AccessToken> response = restTemplate.exchange(request, OAuth2AccessToken.class);
 
         if (response.getStatusCode() == HttpStatus.UNAUTHORIZED) {
