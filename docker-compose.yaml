@@ -1,0 +1,28 @@
+version: "3.4"
+services:
+  registry:
+    build: ./registry
+    networks:
+      - swos
+    ports:
+      - "1111:1111"
+  camp:
+    build: ./camp
+    networks:
+      - swos
+  arena:
+    build: ./arena
+    networks:
+      - swos
+  promoter:
+    build: ./promoter
+    networks:
+      - swos
+  frontend:
+    build: ./frontend
+    networks:
+      - swos
+    ports:
+      - "8080:8080"
+networks:
+  swos:

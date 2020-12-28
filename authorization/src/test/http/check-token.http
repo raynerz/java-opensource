@@ -1,0 +1,7 @@
+POST http://localhost:5555/oauth/check_token
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic produkte secret
+
+token=9f7f309e-a6c7-4557-afce-c108d29d1753
+
+###

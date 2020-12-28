@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>camp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+
 	<name>camp</name>
 	<description>Demo project for Spring Boot</description>
 
