@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>registry</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+
 	<name>registry</name>
 	<description>Eureka service</description>
 
