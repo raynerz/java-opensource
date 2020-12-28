@@ -22,7 +22,6 @@
         <module>arena</module>
         <module>promoter</module>
         <module>frontend</module>
-        <module>authorization</module>
     </modules>
 
     <properties>
