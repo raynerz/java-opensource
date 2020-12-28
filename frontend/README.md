@@ -1,6 +1,7 @@
 # Spring Security Workshop
 
-For securing the API gateway we decided to implement an Oauth2 security configuration. 
+For securing the API gateway we decided to implement an Oauth2 security configuration. OAuth 2.0 is the industry-standard protocol for authorization. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, mobile phones, and living room devices.
+For this task, we have decided to rely on a Oauth2 provider to manage the authorization server and all the user management. The process would be very similar for implementing other similar SSO services.
 
 The following dependencies were added to the frontend-service
 
