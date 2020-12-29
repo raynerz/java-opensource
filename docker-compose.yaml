@@ -24,7 +24,5 @@ services:
       - swos
     ports:
       - "8080:8080"
-    env_file:
-      - ./frontend/.env
 networks:
   swos:

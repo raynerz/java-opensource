@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: promoter-service
-spec:
-  clusterIP: None
-  ports:
-    - port: 4444
-  selector:
+  labels:
     app: heroes
+spec:
+  ports:
+    - name: promoter-rest
+      port: 4444
 ---
 apiVersion: apps/v1
 kind: Deployment
