@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: registry-service
-  labels:
-    app: heroes
+  name: registry
 spec:
+  clusterIP: None
   ports:
-    - name: registry-rest
-      port: 1111
+      - port: 1111
+  selector:
+    app: heroes
 ---
 apiVersion: apps/v1
 kind: Deployment

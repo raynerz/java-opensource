@@ -24,4 +24,5 @@ target/
 /nbdist/
 /.nb-gradle/ 
 
-frontend_secret.yaml
+.env
+frontend_secrets.yaml
