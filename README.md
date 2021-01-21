@@ -88,7 +88,7 @@ and user management features in order to enable an easy Oauth2 integration. Our 
 `ResourceServerConfig.java` which secures all the endpoints of the service by requesting a Bearer token to each request and contacting the Okta server to validate.
 The rest of the microservices will be secured by the docker network within the docker compose file.
 
-In order to quickly test the Oauth2 implementation. Open a browser and call localhost:8080, you will be redirected to the oauth SSO server whose credentials are in the .env file
+In order to quickly test the Oauth2 implementation. Open a browser and call localhost:8080, you will be redirected to the oauth SSO server whose credentials are in the .env file (Deprecated See Master Branch for latest advancements)
 within the frontend-service. Once authenticated, the API Gateway will validate all the requests. 
 
 Source: https://developer.okta.com/blog/2018/02/13/secure-spring-microservices-with-oauth
