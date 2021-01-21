@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: camp-container
-          image: heroes/camp:latest
+          image: heroes/camp:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 2222

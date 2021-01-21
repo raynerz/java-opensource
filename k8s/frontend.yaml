@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: frontend-container
-          image: heroes/frontend:latest
+          image: heroes/frontend:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

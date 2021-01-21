@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: registry-container
-          image: heroes/registry:latest
+          image: heroes/registry:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 1111

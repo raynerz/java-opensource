@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: promoter-container
-          image: heroes/promoter:latest
+          image: heroes/promoter:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4444

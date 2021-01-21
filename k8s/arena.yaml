@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: arena-container
-          image: heroes/arena:latest
+          image: heroes/arena:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3333
