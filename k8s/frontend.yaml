@@ -26,52 +26,46 @@ spec:
         app: frontend
     spec:
       containers:
-        - name: frontend-container
+        - name: frontend
           image: heroes/frontend:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:
-          - name: frontend
-            image: heroes/frontend:v1
-            imagePullPolicy: IfNotPresent
-            ports:
-              - containerPort: 8080
-            env:
-              - name: eureka.client.service-url.defaultZone
-                value: http://registry:1111/eureka/
-              - name: CLIENT_ID
-                valueFrom:
-                  secretKeyRef:
-                    name: frontend-secrets
-                    key: CLIENT_ID
-              - name: CLIENT_SECRET
-                valueFrom:
-                  secretKeyRef:
-                    name: frontend-secrets
-                    key: CLIENT_SECRET
-              - name: ACCESS_TOKEN_URI
-                valueFrom:
-                  secretKeyRef:
-                    name: frontend-secrets
-                    key: ACCESS_TOKEN_URI
-              - name: USER_AUTHORIZATION_URI
-                valueFrom:
-                  secretKeyRef:
-                    name: frontend-secrets
-                    key: USER_AUTHORIZATION_URI
-              - name: USER_INFO_URI
-                valueFrom:
-                  secretKeyRef:
-                    name: frontend-secrets
-                    key: USER_INFO_URI
-              - name: OKTA_USERNAME
-                valueFrom:
-                  secretKeyRef:
-                    name: frontend-secrets
-                    key: OKTA_USERNAME
-              - name: OKTA_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: frontend-secrets
-                    key: OKTA_PASSWORD
+            - name: eureka.client.service-url.defaultZone
+              value: http://registry:1111/eureka/
+            - name: CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: CLIENT_ID
+            - name: CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: CLIENT_SECRET
+            - name: ACCESS_TOKEN_URI
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: ACCESS_TOKEN_URI
+            - name: USER_AUTHORIZATION_URI
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: USER_AUTHORIZATION_URI
+            - name: USER_INFO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: USER_INFO_URI
+            - name: OKTA_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: OKTA_USERNAME
+            - name: OKTA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: OKTA_PASSWORD
