@@ -1,10 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: camp-service
+  name: camp
   labels:
-    app: heroes
+    app: camp
 spec:
+  selector:
+    app: camp
   ports:
     - name: camp-rest
       port: 2222
@@ -17,15 +19,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: heroes
+      app: camp
   template:
     metadata:
       labels:
-        app: heroes
+        app: camp
     spec:
       containers:
-        - name: camp
-          image: heroes/camp:v1
+        - name: camp-container
+          image: heroes/camp:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 2222
