@@ -88,7 +88,7 @@ and user management features in order to enable an easy Oauth2 integration. Our 
 `ResourceServerConfig.java` which secures all the endpoints of the service by requesting a Bearer token to each request and contacting the Okta server to validate.
 The rest of the microservices will be secured by the docker network within the docker compose file.
 
-There is a problem with a bad request coming from the okta server, which is due to the fact that our IP is not fix, therefore for testing the Oauth2 implementation, one should give the correct ip address of the frontend service to the Okta admin server (through the Okta web portal) and the server will redirect to a login page on the mentioned IP. The credentials needed for accessing this portal are in the kubernetes secret file.  
+There is a problem with a bad request coming from the okta server, which is due to the fact that the frontend service IP is not fix within the kubernetes cluster, therefore for testing the Oauth2 implementation, one should give the correct ip address of the frontend service to the Okta admin server (through the Okta web portal) and the server will redirect to a login page on the mentioned IP. The credentials needed for accessing this portal are in the kubernetes secret file.  
 
 
 Source: https://developer.okta.com/blog/2018/02/13/secure-spring-microservices-with-oauth
