@@ -86,7 +86,7 @@ spring.main.allow-bean-definition-overriding=true
 The environment variables written above were obtained by creating an application within Okta, the service deals with the authorization server
 and user management features in order to enable an easy Oauth2 integration. Our service uses the annotation `@EnableOauth2Sso` and its configured via
 `ResourceServerConfig.java` which secures all the endpoints of the service by requesting a Bearer token to each request and contacting the Okta server to validate.
-The rest of the microservices will be secured by the docker network within the docker compose file.
+The rest of the microservices will be secured by the docker/kubernetes network.
 
 There is a problem with a bad request coming from the okta server, which is due to the fact that the frontend service IP is not fix within the kubernetes cluster, therefore for testing the Oauth2 implementation, one should give the correct ip address of the frontend service to the Okta admin server (through the Okta web portal) and the server will redirect to a login page on the mentioned IP. The credentials needed for accessing this portal are in the kubernetes secret file.  
 
