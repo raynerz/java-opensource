@@ -88,7 +88,8 @@ and user management features in order to enable an easy Oauth2 integration. Our 
 `ResourceServerConfig.java` which secures all the endpoints of the service by requesting a Bearer token to each request and contacting the Okta server to validate.
 The rest of the microservices will be secured by the docker/kubernetes network.
 
-There is a problem with a bad request coming from the okta server, which is due to the fact that the frontend service IP is not fix within the kubernetes cluster, therefore for testing the Oauth2 implementation, one should give the correct ip address of the frontend service to the Okta admin server (through the Okta web portal) and the server will redirect to a login page on the mentioned IP. The credentials needed for accessing this portal are in the kubernetes secret file.  
+## Conclusion
+We managed to make it work only if we run it locally outside of Kubernetes. The main problem is that the redirection to Okta doesn't work well. We have to set the redirection IP for the authentication inside the Okta portal, unfortunately that means our endpoint IP should be fixed. We couldn't find a way to make it fixed so we just started up our cluster, pods etc., took note of the IP (by running before a `minikube tunnel` to enable tunneling from the outside without having to setup an Ingress) and then put it in the Okta portal (before it was  `localhost`). Even by doing this, we get a bad request error. We tried putting `server.forward-headers-strategy=native` inside the `application.properties` of the frontend service. After doing this test we couldn't figure out what the problem is with redirection, so we reverted our attempts to the previous version working with `localhost`.
 
 
 Source: https://developer.okta.com/blog/2018/02/13/secure-spring-microservices-with-oauth
